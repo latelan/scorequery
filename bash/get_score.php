@@ -17,7 +17,7 @@ function get_score_list($data){
 		
 		$scores[] = $score;	
 	}
-	print_r($scores);
+
 	return $scores;
 }
 
@@ -45,9 +45,11 @@ function show_score($data)
 	if(!is_array($data)) {
 		echo "Not Found.";
 	}
-	echo " 课程名称\t\t 最终成绩\t 平时成绩\t 卷面成绩\n";
 	foreach($data as $score) {
-		echo $score['kcmc'] ."\t\t " .$score['cj'] ."\t " .$score['pscj'] ."\t " .$score['qmcj'] ."\n";
+		echo " *" .$score['kcmc'] ."\n";
+		echo "    平时：" . $score['pscj'] ."\n";
+		echo "    期末：" . $score['qmcj'] ."\n";
+		echo "  \33[36m  成绩：" . $score['cj'] ."\33[0m\n";
 	}
 }
 ?>

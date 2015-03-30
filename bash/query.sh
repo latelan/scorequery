@@ -2,8 +2,8 @@
 
 user_id="$1"
 user_pass="$2"
-xuenian="2014-2015"
-xueqi="1"
+xuenian="$3"  # "2014-2015"
+xueqi="$4" 	  # "1"
 host="http://222.24.19.202"
 
 #get cookie
@@ -46,4 +46,5 @@ data_score_decode=`php base64.php $data_score`
 score_list=`echo $data_score_decode | sed 's/\r//g' | sed 's/ //g'`
 score_list=`echo $score_list | awk -F '<NewDataSet>' '{print $2}'`
 
+echo "\33[33m $user_id $xuenian 第 $xueqi 期\33[0m \n";
 php get_score.php $score_list
