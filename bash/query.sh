@@ -46,5 +46,9 @@ data_score_decode=`php base64.php $data_score`
 score_list=`echo $data_score_decode | sed 's/\r//g' | sed 's/ //g'`
 score_list=`echo $score_list | awk -F '<NewDataSet>' '{print $2}'`
 
-echo "\33[33m $user_id $xuenian 第 $xueqi 期\33[0m \n";
+#print score
+echo "\33[33m\33[4m$user_id $xuenian 第 $xueqi 期\33[0m";
 php get_score.php $score_list
+
+#clean
+rm -f ./cookie.txt

@@ -43,7 +43,7 @@ function get_score($data){
 function show_score($data)
 {
 	if(!is_array($data)) {
-		echo "Not Found.";
+		echo "Not Found.\n";
 	}
 	foreach($data as $score) {
 		echo " *" .$score['kcmc'] ."\n";
